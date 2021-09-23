@@ -20,37 +20,30 @@ namespace PhoneInfoBookTRPO
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            Main();
         }
 
-        static async Task Main(string[] args)
+        private async Task Main()
         {
-            string connectionString = "Server=(SQLEXPRESS)\\mssqllocal;Database=PhoneInfo_db;Trusted_Connection=True;";
-
-            // Создание подключения
-            SqlConnection connection = new SqlConnection(connectionString);
-            try
+            using (SqlConnection cn = new SqlConnection())
             {
-                // Открываем подключение
-                await connection.OpenAsync();
-                Console.WriteLine("Подключение открыто");
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                // если подключение открыто
-                if (connection.State == ConnectionState.Open)
+                cn.ConnectionString = @"Data Source=MMVL015\SQLEXPRESS;Initial Catalog=PhoneInfo_db;" +
+                    "Integrated Security=SSPI;Pooling=False";
+                try
                 {
-                    // закрываем подключение
-                    //await connection.Close
-                    Console.WriteLine("Подключение закрыто...");
+                    cn.Open();
+                    
                 }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+               
             }
-            Console.WriteLine("Программа завершила работу.");
-            Console.Read();
         }
 
     }

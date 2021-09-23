@@ -29,21 +29,34 @@ namespace PhoneInfoBookTRPO
         /// </summary>
         private void InitializeComponent()
         {
+            this.TBConsole = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // TBConsole
+            // 
+            this.TBConsole.Location = new System.Drawing.Point(12, 354);
+            this.TBConsole.Multiline = true;
+            this.TBConsole.Name = "TBConsole";
+            this.TBConsole.Size = new System.Drawing.Size(290, 84);
+            this.TBConsole.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TBConsole);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox TBConsole;
     }
 }
 
