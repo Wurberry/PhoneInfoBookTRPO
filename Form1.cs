@@ -23,16 +23,27 @@ namespace PhoneInfoBookTRPO
             Main();
         }
 
-        private async Task Main()
+        private void Main()
         {
             using (SqlConnection cn = new SqlConnection())
             {
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.AllowUserToAddRows = false;
+
                 cn.ConnectionString = @"Data Source=MMVL015\SQLEXPRESS;Initial Catalog=PhoneInfo_db;" +
                     "Integrated Security=SSPI;Pooling=False";
                 try
                 {
                     cn.Open();
+                    string strSQL = "SELECT * FROM Users";
+                    SqlCommand myCommand = new SqlCommand(strSQL, cn);
+                    SqlDataReader dr = myCommand.ExecuteReader();
+                    SqlDataAdapter adapter = new SqlDataAdapter(strSQL, cn);
                     
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGridView1.DataSource = ds.Tables[0];
+
                 }
                 catch (SqlException ex)
                 {
