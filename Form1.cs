@@ -74,5 +74,20 @@ namespace PhoneInfoBookTRPO
             }
         }
 
+        private void BTNClose_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Вы хотите закрыть окно?",
+                "ВНИМАНИЕ!",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            } 
+        }
     }
 }
