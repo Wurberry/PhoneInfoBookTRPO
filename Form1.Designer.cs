@@ -33,6 +33,7 @@ namespace PhoneInfoBookTRPO
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BTNClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,11 +66,22 @@ namespace PhoneInfoBookTRPO
             this.LastName.HeaderText = "Last Name";
             this.LastName.Name = "LastName";
             // 
+            // BTNClose
+            // 
+            this.BTNClose.Location = new System.Drawing.Point(661, 30);
+            this.BTNClose.Name = "BTNClose";
+            this.BTNClose.Size = new System.Drawing.Size(75, 23);
+            this.BTNClose.TabIndex = 3;
+            this.BTNClose.Text = "Close app";
+            this.BTNClose.UseVisualStyleBackColor = true;
+            this.BTNClose.Click += new System.EventHandler(this.BTNClose_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BTNClose);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TBConsole);
             this.Text = "Form1";
@@ -86,6 +98,7 @@ namespace PhoneInfoBookTRPO
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.Button BTNClose;
     }
 }
 
