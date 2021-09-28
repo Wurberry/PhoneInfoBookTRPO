@@ -20,6 +20,13 @@ namespace PhoneInfoBookTRPO
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(
+                "Приветствую вас!!!",
+                "Приветствие",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
             Main();
         }
 
