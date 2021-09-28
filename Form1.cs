@@ -35,14 +35,24 @@ namespace PhoneInfoBookTRPO
                 try
                 {
                     cn.Open();
+                    //string strSQL = "SELECT * FROM Users";
+                    //SqlCommand myCommand = new SqlCommand(strSQL, cn);
+                    //SqlDataReader dr = myCommand.ExecuteReader();
+                    //SqlDataAdapter adapter = new SqlDataAdapter(strSQL, cn);
+
+                    //DataSet ds = new DataSet();
+                    //adapter.Fill(ds);
+                    //dataGridView1.DataSource = ds.Tables[0];
+
                     string strSQL = "SELECT * FROM Users";
                     SqlCommand myCommand = new SqlCommand(strSQL, cn);
                     SqlDataReader dr = myCommand.ExecuteReader();
-                    SqlDataAdapter adapter = new SqlDataAdapter(strSQL, cn);
-                    
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables[0];
+                    while (dr.Read())
+                    {
+                        TBConsole.Text += String.Format(@" {0} : {1}" + "\r\n", dr[0], dr[1]);
+                        dataGridView1.Rows.Add(dr[0], dr[1]);
+                    }
+
 
                 }
                 catch (SqlException ex)
